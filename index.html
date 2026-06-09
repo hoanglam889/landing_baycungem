@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baycungem | Flycam & Video Panorama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans bg-black text-white leading-relaxed">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-black/70 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#home" class="text-2xl font-extrabold tracking-tight text-amber-400">Baycungem</a>
+      <nav class="hidden items-center gap-8 md:flex">
+        <a href="#home" class="text-white transition-all duration-300 hover:text-amber-400">Trang chủ</a>
+        <a href="#about" class="text-white transition-all duration-300 hover:text-amber-400">Giới thiệu</a>
+        <div class="group relative">
+          <button class="flex items-center gap-2 text-white transition-all duration-300 hover:text-amber-400">
+            Dịch vụ
+            <span class="text-amber-400">▾</span>
+          </button>
+          <div class="invisible absolute right-0 mt-3 w-48 rounded-2xl border border-white/10 bg-slate-950 p-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
+            <a href="#service1" class="block rounded-xl px-3 py-2 text-white transition-all duration-300 hover:bg-amber-500/10 hover:text-amber-300">VR Panorama</a>
+            <a href="#service2" class="mt-2 block rounded-xl px-3 py-2 text-white transition-all duration-300 hover:bg-amber-500/10 hover:text-amber-300">Mua bán Video Flycam</a>
+          </div>
+        </div>
+      </nav>
+
+      <button id="mobile-menu-button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 md:hidden">
+        <span class="sr-only">Mở menu</span>
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950/95 px-6 py-4 md:hidden">
+      <a href="#home" class="block py-3 text-white transition-all duration-300 hover:text-amber-400">Trang chủ</a>
+      <a href="#about" class="block py-3 text-white transition-all duration-300 hover:text-amber-400">Giới thiệu</a>
+      <details class="group rounded-3xl border border-white/10 bg-black/60 p-4 transition-all duration-300">
+        <summary class="flex cursor-pointer items-center justify-between text-white">Dịch vụ <span class="text-amber-400">▾</span></summary>
+        <div class="mt-3 space-y-2">
+          <a href="#service1" class="block rounded-2xl bg-white/5 px-4 py-3 text-white transition-all duration-300 hover:bg-amber-500/10">VR Panorama</a>
+          <a href="#service2" class="block rounded-2xl bg-white/5 px-4 py-3 text-white transition-all duration-300 hover:bg-amber-500/10">Mua bán Video Flycam</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="home">
+    <section class="relative min-h-[90vh] bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80');">
+      <div class="absolute inset-0 bg-black/60"></div>
+      <div class="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col justify-center px-6 py-20 text-center text-white sm:px-8 lg:px-0">
+        <span class="mx-auto mb-6 inline-flex rounded-full border border-amber-400/50 bg-white/5 px-4 py-2 text-sm uppercase tracking-[0.3em] text-amber-300">Baycungem | Flycam chuyên nghiệp</span>
+        <h1 class="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">Chạm tới những góc nhìn mới với video flycam chất lượng cao.</h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base text-slate-200 sm:text-lg">Dịch vụ quay phim, chụp ảnh flycam và VR Panorama cho bất kỳ dự án nào: sự kiện, địa ốc, resort, du lịch.</p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="#service1" class="inline-flex items-center justify-center rounded-full bg-amber-400 px-8 py-4 text-sm font-semibold text-black transition-all duration-300 hover:scale-[1.02]">
+            Khám phá ngay
+          </a>
+          <a href="#about" class="inline-flex items-center justify-center rounded-full border border-amber-400 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-amber-400/10">
+            Liên hệ tư vấn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="bg-white py-20 text-slate-900">
+      <div class="mx-auto max-w-7xl px-6 sm:px-8">
+        <div class="mb-12 text-center">
+          <span class="text-sm uppercase tracking-[0.35em] text-amber-500">Sản phẩm nổi bật</span>
+          <h2 class="mt-4 text-3xl font-bold sm:text-4xl">Dịch vụ Baycungem được ưa chuộng</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-base text-slate-600">Thiết kế gói dịch vụ chuyên nghiệp cho mọi nhu cầu marketing, sự kiện và truyền thông số.</p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Tour VR Panorama" />
+            <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">Hot</span>
+            <h3 class="mt-4 text-xl font-semibold">VR Panorama 360°</h3>
+            <p class="mt-3 text-sm text-slate-600">Tạo trải nghiệm kỹ thuật số sống động cho bất động sản, resort và môi trường thực tế ảo.</p>
+            <a href="#service1" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
+              Xem chi tiết →
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Video flycam" />
+            <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">Hot</span>
+            <h3 class="mt-4 text-xl font-semibold">Video Flycam Sự kiện</h3>
+            <p class="mt-3 text-sm text-slate-600">Quay chụp flycam sự kiện, lễ hội và dự án xây dựng với góc nhìn trên cao ấn tượng.</p>
+            <a href="#service2" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
+              Xem chi tiết →
+            </a>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=800&q=80" alt="Dịch vụ baycungem" />
+            <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">Hot</span>
+            <h3 class="mt-4 text-xl font-semibold">Gói Bản quyền Video</h3>
+            <p class="mt-3 text-sm text-slate-600">Sản phẩm video flycam có bản quyền, dựng hậu kỳ chuyên nghiệp cho thương hiệu.</p>
+            <a href="#service2" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
+              Xem chi tiết →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="bg-slate-950 py-20 text-white">
+      <div class="mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:items-center">
+        <div class="overflow-hidden rounded-[2rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.18),_transparent_50%)] p-1">
+          <img class="h-full w-full rounded-[1.75rem] object-cover" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80" alt="Đội ngũ Baycungem" />
+        </div>
+        <div>
+          <span class="text-sm uppercase tracking-[0.35em] text-amber-400">Về chúng tôi</span>
+          <h2 class="mt-4 text-4xl font-bold leading-tight">Baycungem - đối tác uy tín cho mọi dự án truyền thông trên không</h2>
+          <p class="mt-6 max-w-xl text-slate-300">Với đội ngũ chuyên gia quay flycam giàu kinh nghiệm, thiết bị hiện đại và quy trình sản xuất chuyên nghiệp, Baycungem mang đến hình ảnh chất lượng cao, an toàn và đúng tiến độ.</p>
+          <ul class="mt-8 space-y-4 text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400">✓</span>
+              <p>Thiết bị drone 4K/6K mới nhất, camera chống rung gimbal chính xác.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400">✓</span>
+              <p>Quá trình hậu kỳ màu sắc chuyên sâu, dựng phim nhanh chóng và chuyên nghiệp.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400">✓</span>
+              <p>Bảo mật nội dung, hỗ trợ tư vấn toàn diện từ khâu ý tưởng đến truyền thông.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="bg-white py-20 text-slate-900">
+      <div class="mx-auto max-w-7xl px-6 sm:px-8 text-center">
+        <span class="text-sm uppercase tracking-[0.35em] text-amber-500">Khám phá</span>
+        <h2 class="mt-4 text-3xl font-bold sm:text-4xl">Khám phá Baycungem qua Video</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-base text-slate-600">Xem video trình diễn flycam và sản phẩm trải nghiệm thực tế để cảm nhận phong cách Baycungem.</p>
+        <div class="mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] bg-black shadow-2xl shadow-slate-900/20">
+          <div class="aspect-video bg-slate-900">
+            <iframe class="h-full w-full rounded-[2rem] bg-black" src="https://www.youtube.com/embed/4qGQncx7k4M" title="Baycungem Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TikTok Section -->
+    <section class="bg-slate-950 py-20 text-white">
+      <div class="mx-auto max-w-7xl px-6 sm:px-8 text-center">
+        <span class="text-sm uppercase tracking-[0.35em] text-amber-400">Baycungem trên Tiktok</span>
+        <h2 class="mt-4 text-3xl font-bold sm:text-4xl">Chạm tim người xem qua video dọc</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-400">Dàn video ngắn hàng đầu được thiết kế để lan truyền và ghi dấu ấn thương hiệu.</p>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/60">
+            <img class="h-72 w-full rounded-[1.5rem] object-cover" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="Video Tiktok 1" />
+            <button class="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-amber-400 bg-black/70 text-amber-400 transition-all duration-300 group-hover:scale-110">
+              ▶
+            </button>
+          </div>
+          <div class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/60">
+            <img class="h-72 w-full rounded-[1.5rem] object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Video Tiktok 2" />
+            <button class="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-amber-400 bg-black/70 text-amber-400 transition-all duration-300 group-hover:scale-110">
+              ▶
+            </button>
+          </div>
+          <div class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/60">
+            <img class="h-72 w-full rounded-[1.5rem] object-cover" src="https://images.unsplash.com/photo-1525976162430-de6a51b6104e?auto=format&fit=crop&w=800&q=80" alt="Video Tiktok 3" />
+            <button class="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-amber-400 bg-black/70 text-amber-400 transition-all duration-300 group-hover:scale-110">
+              ▶
+            </button>
+          </div>
+          <div class="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/60">
+            <img class="h-72 w-full rounded-[1.5rem] object-cover" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fit=crop&w=800&q=80" alt="Video Tiktok 4" />
+            <button class="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-amber-400 bg-black/70 text-amber-400 transition-all duration-300 group-hover:scale-110">
+              ▶
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="bg-white py-20 text-slate-900">
+      <div class="mx-auto max-w-7xl px-6 sm:px-8">
+        <div class="mb-12 text-center">
+          <span class="text-sm uppercase tracking-[0.35em] text-amber-500">Tin tức & Sự kiện</span>
+          <h2 class="mt-4 text-3xl font-bold sm:text-4xl">Cập nhật mới nhất từ Baycungem</h2>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Tin tức 1" />
+            <div class="p-6">
+              <p class="text-sm uppercase tracking-[0.3em] text-amber-500">03 Tháng 6, 2026</p>
+              <h3 class="mt-4 text-xl font-semibold">Baycungem mở rộng dịch vụ quay flycam tại Đà Nẵng</h3>
+              <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Tin tức 2" />
+            <div class="p-6">
+              <p class="text-sm uppercase tracking-[0.3em] text-amber-500">20 Tháng 5, 2026</p>
+              <h3 class="mt-4 text-xl font-semibold">Giới thiệu gói VR Panorama cho bất động sản cao cấp</h3>
+              <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+            </div>
+          </article>
+          <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+            <img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Tin tức 3" />
+            <div class="p-6">
+              <p class="text-sm uppercase tracking-[0.3em] text-amber-500">10 Tháng 5, 2026</p>
+              <h3 class="mt-4 text-xl font-semibold">Mẹo tận dụng flycam để quảng bá sự kiện mùa hè</h3>
+              <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-slate-300">
+      <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8">
+        <div class="grid gap-12 lg:grid-cols-3">
+          <div>
+            <h3 class="text-xl font-semibold text-white">Liên hệ</h3>
+            <p class="mt-5 text-slate-400">Địa chỉ: 123 Đường Trần Hưng Đạo, Quận 1, TP. HCM</p>
+            <p class="mt-3 text-slate-400">SĐT: <a href="tel:+84912345678" class="text-amber-400 hover:text-amber-300">+84 912 345 678</a></p>
+            <p class="mt-3 text-slate-400">Email: <a href="mailto:hello@baycungem.vn" class="text-amber-400 hover:text-amber-300">hello@baycungem.vn</a></p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-white">Links nhanh</h3>
+            <ul class="mt-5 space-y-3 text-slate-400">
+              <li><a href="#home" class="transition-all duration-300 hover:text-white">Trang chủ</a></li>
+              <li><a href="#about" class="transition-all duration-300 hover:text-white">Giới thiệu</a></li>
+              <li><a href="#service1" class="transition-all duration-300 hover:text-white">VR Panorama</a></li>
+              <li><a href="#service2" class="transition-all duration-300 hover:text-white">Video Flycam</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-white">Mạng xã hội</h3>
+            <div class="mt-5 flex items-center gap-4">
+              <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">F</a>
+              <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">I</a>
+              <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">Y</a>
+              <a href="#" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">T</a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-500">© 2026 Baycungem. Bảo lưu mọi quyền.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
