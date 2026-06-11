@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css?v=1.0.1" />
+  <link rel="stylesheet" href="style.css?v=1.0.2" />
 </head>
 <body class="font-sans bg-black text-white leading-relaxed">
   <!-- Navbar -->
@@ -168,58 +168,77 @@
         <span class="text-sm uppercase tracking-[0.35em] text-amber-400">Baycungem trên Tiktok</span>
         <h2 class="mt-4 text-3xl font-bold sm:text-4xl">Chạm tim người xem qua video dọc</h2>
         <p class="mx-auto mt-4 max-w-2xl text-slate-400">Dàn video ngắn hàng đầu được thiết kế để lan truyền và ghi dấu ấn thương hiệu.</p>
-        <div class="mt-12 grid gap-6 sm:grid-cols-1 md:grid-cols-3 justify-center items-start max-w-6xl mx-auto">
+        
+        <div class="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3 justify-center items-start max-w-6xl mx-auto">
           <!-- Video 1 -->
-          <div class="flex justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/40 p-4 transition-all duration-300 hover:border-amber-400/60">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@.baycungem/video/7422285166367804679" data-video-id="7422285166367804679" style="max-width: 605px;min-width: 325px; margin: 0 auto;" >
-              <section>
-                <a target="_blank" title="@.baycungem" href="https://www.tiktok.com/@.baycungem?refer=embed">@.baycungem</a>
-                Opening Final Miss Cosmo 2024
-                <a title="baycungem" target="_blank" href="https://www.tiktok.com/tag/baycungem?refer=embed">#baycungem</a>
-                <a title="misscosmo" target="_blank" href="https://www.tiktok.com/tag/misscosmo?refer=embed">#misscosmo</a>
-                <a title="unimedia" target="_blank" href="https://www.tiktok.com/tag/unimedia?refer=embed">#unimedia</a>
-                <a title="saigon" target="_blank" href="https://www.tiktok.com/tag/saigon?refer=embed">#saigon</a>
-                <a title="hochiminhcity" target="_blank" href="https://www.tiktok.com/tag/hochiminhcity?refer=embed">#hochiminhcity</a>
-                <a title="flypシ" target="_blank" href="https://www.tiktok.com/tag/flyp%E3%82%B7?refer=embed">#flypシ</a>
-                <a title="vietnam" target="_blank" href="https://www.tiktok.com/tag/vietnam?refer=embed">#vietnam</a>
-                <a title="fly" target="_blank" href="https://www.tiktok.com/tag/fly?refer=embed">#fly</a>
-                <a target="_blank" title="♬ nhạc nền - ☪𝘚𝘤𝘰𝘳𝘱𝘪𝘰.𝘜𝘯𝘪 - 𝙉οng Yang" href="https://www.tiktok.com/music/nhạc-nền-☪𝘚𝘤𝘰𝘳𝘱𝘪𝘰𝘜𝘯𝘪-7423984985771756304?refer=embed">♬ nhạc nền - ☪𝘚𝘤𝘰𝘳𝘱𝘪𝘰.𝘜𝘯𝘪 - 𝙉𝙤𝙣𝙜 𝙔𝙖𝙣𝙜</a>
-              </section>
-            </blockquote>
+          <div class="video-card mx-auto w-full max-w-[340px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-900/40 p-2 transition-all duration-300 hover:border-amber-400/60 hover:-translate-y-1 shadow-2xl relative group cursor-pointer" data-tiktok-url="https://www.tiktok.com/@.baycungem/video/7422285166367804679">
+            <div class="relative aspect-[9/16] w-full overflow-hidden rounded-[2rem] bg-black">
+              <video class="tiktok-video h-full w-full object-cover" loop muted playsinline webkit-playsinline="true" preload="metadata" src="videos/video1.mp4"></video>
+              <!-- Play overlay -->
+              <div class="play-overlay absolute inset-0 flex items-center justify-center bg-black/30 opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span class="play-icon text-white text-3xl bg-black/60 rounded-full w-14 h-14 flex items-center justify-center border border-white/20 shadow-lg transition-transform duration-300 group-hover:scale-110">▶</span>
+              </div>
+              <!-- Mute button -->
+              <button class="mute-btn absolute top-4 right-4 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 border border-white/10 transition-all duration-300 shadow-md">
+                <!-- Mute icon -->
+                <svg class="w-5 h-5 mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+                </svg>
+                <!-- Unmute icon -->
+                <svg class="w-5 h-5 unmute-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                </svg>
+              </button>
+            </div>
           </div>
           
           <!-- Video 2 -->
-          <div class="flex justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/40 p-4 transition-all duration-300 hover:border-amber-400/60">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@.baycungem/video/7585922969336139028" data-video-id="7585922969336139028" style="max-width: 605px;min-width: 325px; margin: 0 auto;" >
-              <section>
-                <a target="_blank" title="@.baycungem" href="https://www.tiktok.com/@.baycungem?refer=embed">@.baycungem</a>
-                Thế giới sẽ nói nhiều về 🇻🇳 lắm đây
-                <a title="vietnam" target="_blank" href="https://www.tiktok.com/tag/vietnam?refer=embed">#vietnam</a>
-                <a title="misscosmo" target="_blank" href="https://www.tiktok.com/tag/misscosmo?refer=embed">#MissCosmo</a>
-                <a title="misscosmo2025" target="_blank" href="https://www.tiktok.com/tag/misscosmo2025?refer=embed">#misscosmo2025</a>
-                <a title="baycungem" target="_blank" href="https://www.tiktok.com/tag/baycungem?refer=embed">#baycungem</a>
-                <a target="_blank" title="♬ nhạc nền  - Baycungem" href="https://www.tiktok.com/music/nhạc-nền-Baycungem-7585923016664632082?refer=embed">♬ nhạc nền  - Baycungem</a>
-              </section>
-            </blockquote>
+          <div class="video-card mx-auto w-full max-w-[340px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-900/40 p-2 transition-all duration-300 hover:border-amber-400/60 hover:-translate-y-1 shadow-2xl relative group cursor-pointer" data-tiktok-url="https://www.tiktok.com/@.baycungem/video/7585922969336139028">
+            <div class="relative aspect-[9/16] w-full overflow-hidden rounded-[2rem] bg-black">
+              <video class="tiktok-video h-full w-full object-cover" loop muted playsinline webkit-playsinline="true" preload="metadata" src="videos/video2.mp4"></video>
+              <!-- Play overlay -->
+              <div class="play-overlay absolute inset-0 flex items-center justify-center bg-black/30 opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span class="play-icon text-white text-3xl bg-black/60 rounded-full w-14 h-14 flex items-center justify-center border border-white/20 shadow-lg transition-transform duration-300 group-hover:scale-110">▶</span>
+              </div>
+              <!-- Mute button -->
+              <button class="mute-btn absolute top-4 right-4 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 border border-white/10 transition-all duration-300 shadow-md">
+                <!-- Mute icon -->
+                <svg class="w-5 h-5 mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+                </svg>
+                <!-- Unmute icon -->
+                <svg class="w-5 h-5 unmute-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                </svg>
+              </button>
+            </div>
           </div>
           
           <!-- Video 3 -->
-          <div class="flex justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900/40 p-4 transition-all duration-300 hover:border-amber-400/60">
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@.baycungem/video/7649760522543336705" data-video-id="7649760522543336705" style="max-width: 605px;min-width: 325px; margin: 0 auto;" >
-              <section>
-                <a target="_blank" title="@.baycungem" href="https://www.tiktok.com/@.baycungem?refer=embed">@.baycungem</a>
-                Thành phố này là nhân chứng lịch sử biết bao chuyên tình, mà thành phố vẫn đẹp nha
-                <a title="saigon" target="_blank" href="https://www.tiktok.com/tag/saigon?refer=embed">#saigon</a>
-                <a title="hochiminhcity" target="_blank" href="https://www.tiktok.com/tag/hochiminhcity?refer=embed">#hochiminhcity</a>
-                <a title="baycungem" target="_blank" href="https://www.tiktok.com/tag/baycungem?refer=embed">#baycungem</a>
-                <a title="marina" target="_blank" href="https://www.tiktok.com/tag/marina?refer=embed">#marina</a>
-                <a title="landmark81" target="_blank" href="https://www.tiktok.com/tag/landmark81?refer=embed">#landmark81</a>
-                <a target="_blank" title="♬ âm thanh gốc  - Baycungem" href="https://www.tiktok.com/music/âm-thanh-gốc-Baycungem-7649760608992103175?refer=embed">♬ âm thanh gốc  - Baycungem</a>
-              </section>
-            </blockquote>
+          <div class="video-card mx-auto w-full max-w-[340px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-900/40 p-2 transition-all duration-300 hover:border-amber-400/60 hover:-translate-y-1 shadow-2xl relative group cursor-pointer" data-tiktok-url="https://www.tiktok.com/@.baycungem/video/7649760522543336705">
+            <div class="relative aspect-[9/16] w-full overflow-hidden rounded-[2rem] bg-black">
+              <video class="tiktok-video h-full w-full object-cover" loop muted playsinline webkit-playsinline="true" preload="metadata" src="videos/video3.mp4"></video>
+              <!-- Play overlay -->
+              <div class="play-overlay absolute inset-0 flex items-center justify-center bg-black/30 opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span class="play-icon text-white text-3xl bg-black/60 rounded-full w-14 h-14 flex items-center justify-center border border-white/20 shadow-lg transition-transform duration-300 group-hover:scale-110">▶</span>
+              </div>
+              <!-- Mute button -->
+              <button class="mute-btn absolute top-4 right-4 z-10 bg-black/60 hover:bg-black/80 text-white rounded-full p-2 border border-white/10 transition-all duration-300 shadow-md">
+                <!-- Mute icon -->
+                <svg class="w-5 h-5 mute-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+                </svg>
+                <!-- Unmute icon -->
+                <svg class="w-5 h-5 unmute-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-        <script async src="https://www.tiktok.com/embed.js"></script>
       </div>
     </section>
 
