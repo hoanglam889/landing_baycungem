@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
                 'instagram_url' => '#',
                 'youtube_url' => '#',
                 'tiktok_url' => '#',
+                'zalo_url' => 'https://zalo.me/0901577579',
                 'copyright' => '© 2026 Baycungem. Bảo lưu mọi quyền.',
             ]
         );

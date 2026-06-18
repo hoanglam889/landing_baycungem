@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FrontendController;
+
 Route::get('/', function () {
     $setting = \App\Models\Setting::first();
     $hero = \App\Models\HeroSection::first();
@@ -14,6 +16,9 @@ Route::get('/', function () {
 
     return view('welcome', compact('setting', 'hero', 'services', 'about', 'videoShowcase', 'tiktokVideos', 'newsList'));
 });
+
+Route::get('/dich-vu/{id}', [FrontendController::class, 'showService'])->name('services.show');
+Route::get('/tin-tuc/{id}', [FrontendController::class, 'showNews'])->name('news.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

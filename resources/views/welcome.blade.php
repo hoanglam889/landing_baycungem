@@ -9,6 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ asset('style.css') }}?v=1.0.2" />
+  <style>
+    /* Pulse Animation for Floating Buttons matching the web's amber theme */
+    @keyframes contact-pulse-amber {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.8);
+      }
+      70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 14px rgba(245, 158, 11, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+      }
+    }
+    
+    .pulsate-phone-btn {
+      animation: contact-pulse-amber 2s infinite;
+    }
+
+    .pulsate-zalo-btn {
+      animation: contact-pulse-amber 2.2s infinite;
+    }
+  </style>
 </head>
 <body class="font-sans bg-black text-white leading-relaxed">
   <!-- Navbar -->
@@ -25,7 +50,7 @@
           </button>
           <div class="invisible absolute right-0 mt-3 w-48 rounded-2xl border border-white/10 bg-slate-950 p-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
             @foreach($services as $service)
-              <a href="{{ $service->detail_url }}" class="block rounded-xl px-3 py-2 text-white transition-all duration-300 hover:bg-amber-500/10 hover:text-amber-300">{{ $service->title }}</a>
+              <a href="{{ url('/dich-vu/' . $service->id) }}" class="block rounded-xl px-3 py-2 text-white transition-all duration-300 hover:bg-amber-500/10 hover:text-amber-300">{{ $service->title }}</a>
             @endforeach
           </div>
         </div>
@@ -54,7 +79,7 @@
         <summary class="flex cursor-pointer items-center justify-between text-white">Dịch vụ <span class="text-amber-400">▾</span></summary>
         <div class="mt-3 space-y-2">
           @foreach($services as $service)
-            <a href="{{ $service->detail_url }}" class="block rounded-2xl bg-white/5 px-4 py-3 text-white transition-all duration-300 hover:bg-amber-500/10">{{ $service->title }}</a>
+            <a href="{{ url('/dich-vu/' . $service->id) }}" class="block rounded-2xl bg-white/5 px-4 py-3 text-white transition-all duration-300 hover:bg-amber-500/10">{{ $service->title }}</a>
           @endforeach
         </div>
       </details>
@@ -108,7 +133,7 @@
               <p class="mt-3 text-sm text-slate-600">{{ $service->description }}</p>
               <div class="mt-6 flex items-center justify-between border-t border-slate-200 pt-4">
                 <span class="text-amber-600 font-bold text-base">{{ format_price($service->price) }}</span>
-                <a href="{{ $service->detail_url }}" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
+                <a href="{{ url('/dich-vu/' . $service->id) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
                   Xem chi tiết →
                 </a>
               </div>
@@ -207,7 +232,7 @@
                 <p class="text-sm uppercase tracking-[0.3em] text-amber-500">{{ $news->published_date->translatedFormat('d \T\h\á\n\g m, Y') }}</p>
                 <h3 class="mt-4 text-xl font-semibold">{{ $news->title }}</h3>
                 <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ $news->summary }}</p>
-                <a href="#" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+                <a href="{{ url('/tin-tuc/' . $news->id) }}" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
               </div>
             </article>
           @endforeach
@@ -231,7 +256,7 @@
               <li><a href="#home" class="transition-all duration-300 hover:text-white">Trang chủ</a></li>
               <li><a href="#about" class="transition-all duration-300 hover:text-white">Giới thiệu</a></li>
               @foreach($services as $service)
-                <li><a href="{{ $service->detail_url }}" class="transition-all duration-300 hover:text-white">{{ $service->title }}</a></li>
+                <li><a href="{{ url('/dich-vu/' . $service->id) }}" class="transition-all duration-300 hover:text-white">{{ $service->title }}</a></li>
               @endforeach
             </ul>
           </div>
@@ -249,6 +274,24 @@
       </div>
     </footer>
   </main>
+
+  <!-- Floating Contact Buttons (Phone & Zalo) -->
+  <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-4">
+    <!-- Phone Button -->
+    @if($setting->show_phone_button)
+      <a href="tel:{{ preg_replace('/[^0-9]/', '', $setting->phone) }}" class="pulsate-phone-btn flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-black shadow-2xl transition-transform duration-300 hover:scale-110" title="Gọi điện tư vấn">
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </a>
+    @endif
+    <!-- Zalo Button -->
+    @if($setting->show_zalo_button)
+      <a href="{{ $setting->zalo_url ?? 'https://zalo.me/' . preg_replace('/[^0-9]/', '', $setting->phone) }}" target="_blank" class="pulsate-zalo-btn flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-2xl transition-transform duration-300 hover:scale-110" title="Chat qua Zalo">
+        <span class="text-xs font-black tracking-tight select-none">ZALO</span>
+      </a>
+    @endif
+  </div>
 
   <script src="{{ asset('script.js') }}?v=1.0.1"></script>
 </body>

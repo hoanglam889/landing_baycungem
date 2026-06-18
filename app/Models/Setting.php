@@ -18,6 +18,14 @@ class Setting extends Model
         'instagram_url',
         'youtube_url',
         'tiktok_url',
+        'zalo_url',
+        'show_phone_button',
+        'show_zalo_button',
         'copyright',
+    ];
+
+    protected $casts = [
+        'show_phone_button' => 'boolean',
+        'show_zalo_button' => 'boolean',
     ];
 }

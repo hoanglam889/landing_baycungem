@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Settings\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class SettingForm
@@ -41,6 +42,16 @@ class SettingForm
                     ->label('Liên kết TikTok')
                     ->url()
                     ->default(null),
+                TextInput::make('zalo_url')
+                    ->label('Liên kết Zalo')
+                    ->url()
+                    ->default(null),
+                Toggle::make('show_phone_button')
+                    ->label('Hiển thị nút gọi điện thoại')
+                    ->default(true),
+                Toggle::make('show_zalo_button')
+                    ->label('Hiển thị nút chat Zalo')
+                    ->default(true),
                 TextInput::make('copyright')
                     ->label('Dòng chữ bản quyền (Copyright)')
                     ->required(),
