@@ -22,6 +22,7 @@ class UserForm
                 TextInput::make('password')
                     ->label('Mật khẩu')
                     ->password()
+                    ->dehydrateStateUsing(fn ($state) => \Illuminate\Support\Facades\Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
                     ->required(fn (string $context): bool => $context === 'create'),
             ]);
