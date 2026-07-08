@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ $setting->site_name }} | Flycam & Video Panorama</title>
+  <link rel="icon" href="{{ asset('storage/thumbnailbce.png') }}" type="image/png" />
+  <meta property="og:image" content="{{ asset('storage/thumbnailbce.png') }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -39,7 +41,9 @@
   <!-- Navbar -->
   <header class="sticky top-0 z-50 bg-black/70 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#home" class="text-2xl font-extrabold tracking-tight text-amber-400">{{ $setting->site_name }}</a>
+      <a href="#home" class="flex items-center shrink-0">
+        <img src="{{ asset('storage/logobce.png') }}" alt="{{ $setting->site_name }}" class="h-10 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] scale-[3] origin-left transition-transform duration-300 hover:scale-[3.1]" />
+      </a>
       <nav class="hidden items-center gap-8 md:flex">
         <a href="#home" class="text-white transition-all duration-300 hover:text-amber-400">Trang chủ</a>
         <a href="#about" class="text-white transition-all duration-300 hover:text-amber-400">Giới thiệu</a>
