@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -21,6 +22,9 @@ class UsersTable
                 TextColumn::make('email')
                     ->label('Địa chỉ Email')
                     ->searchable(),
+                IconColumn::make('is_admin')
+                    ->label('Quyền Admin')
+                    ->boolean(),
                 TextColumn::make('created_at')
                     ->label('Ngày tạo')
                     ->dateTime()

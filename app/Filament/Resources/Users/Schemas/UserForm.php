@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class UserForm
@@ -19,6 +20,9 @@ class UserForm
                     ->email()
                     ->required()
                     ->unique(ignoreRecord: true),
+                Toggle::make('is_admin')
+                    ->label('Quyền Admin')
+                    ->default(false),
                 TextInput::make('password')
                     ->label('Mật khẩu')
                     ->password()
