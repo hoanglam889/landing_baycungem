@@ -30,6 +30,10 @@ class SettingForm
                     ->label('Liên kết Facebook')
                     ->url()
                     ->default(null),
+                TextInput::make('messenger_url')
+                    ->label('Liên kết Messenger')
+                    ->url()
+                    ->default(null),
                 TextInput::make('instagram_url')
                     ->label('Liên kết Instagram')
                     ->url()

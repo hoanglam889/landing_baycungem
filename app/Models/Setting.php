@@ -15,6 +15,7 @@ class Setting extends Model
         'email',
         'address',
         'facebook_url',
+        'messenger_url',
         'instagram_url',
         'youtube_url',
         'tiktok_url',
