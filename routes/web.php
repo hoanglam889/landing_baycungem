@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dich-vu/{id}', [FrontendController::class, 'showService'])->name('services.show');
-Route::get('/tin-tuc/{id}', [FrontendController::class, 'showNews'])->name('news.show');
+Route::get('/tin-tuc/{slug}', [FrontendController::class, 'showNews'])->name('news.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

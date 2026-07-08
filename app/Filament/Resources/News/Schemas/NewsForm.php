@@ -16,7 +16,13 @@ class NewsForm
             ->components([
                 TextInput::make('title')
                     ->label('Tiêu đề bài viết')
-                    ->required(),
+                    ->required()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (string $operation, $state, \Filament\Forms\Set $set) => $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null),
+                TextInput::make('slug')
+                    ->label('Đường dẫn (Slug)')
+                    ->required()
+                    ->unique(ignoreRecord: true),
                 TextInput::make('category')
                     ->label('Chuyên mục / Thể loại')
                     ->required(),

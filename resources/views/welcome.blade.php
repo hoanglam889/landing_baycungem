@@ -39,67 +39,7 @@
 </head>
 <body class="font-sans bg-black text-white leading-relaxed">
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 bg-black/70 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-      <a href="#home" class="flex items-center shrink-0">
-        <img src="{{ asset('storage/logobce.png') }}" alt="{{ $setting->site_name }}" class="h-10 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] scale-[3] origin-left transition-transform duration-300 hover:scale-[3.1]" />
-      </a>
-      <nav class="hidden items-center gap-8 md:flex">
-        <a href="#home" class="text-white transition-all duration-300 hover:text-amber-400">Trang chủ</a>
-        <a href="#about" class="text-white transition-all duration-300 hover:text-amber-400">Giới thiệu</a>
-        <a href="#news" class="text-white transition-all duration-300 hover:text-amber-400">Bài viết</a>
-        <div class="group relative">
-          <button class="flex items-center gap-2 text-white transition-all duration-300 hover:text-amber-400">
-            Dịch vụ
-            <span class="text-amber-400">▾</span>
-          </button>
-          <div class="invisible absolute right-0 mt-3 w-48 rounded-2xl border border-white/10 bg-slate-950 p-3 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
-            @foreach($services as $service)
-              <a href="{{ url('/dich-vu/' . $service->id) }}" class="block rounded-xl px-3 py-2 text-white transition-all duration-300 hover:bg-amber-500/10 hover:text-amber-300">{{ $service->title }}</a>
-            @endforeach
-          </div>
-        </div>
-        @auth
-          <a href="{{ url('/dashboard') }}" class="inline-flex items-center justify-center rounded-full bg-amber-400 px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:scale-[1.02]">
-            Dashboard
-          </a>
-        @else
-          <a href="{{ route('login') }}" class="text-white transition-all duration-300 hover:text-amber-400 text-sm font-semibold">
-            Đăng nhập
-          </a>
-        @endauth
-      </nav>
-
-      <button id="mobile-menu-button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-all duration-300 md:hidden">
-        <span class="sr-only">Mở menu</span>
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950/95 px-6 py-4 md:hidden">
-      <a href="#home" class="block py-3 text-white transition-all duration-300 hover:text-amber-400">Trang chủ</a>
-      <a href="#about" class="block py-3 text-white transition-all duration-300 hover:text-amber-400">Giới thiệu</a>
-      <a href="#news" class="block py-3 text-white transition-all duration-300 hover:text-amber-400">Bài viết</a>
-      <details class="group rounded-3xl border border-white/10 bg-black/60 p-4 transition-all duration-300">
-        <summary class="flex cursor-pointer items-center justify-between text-white">Dịch vụ <span class="text-amber-400">▾</span></summary>
-        <div class="mt-3 space-y-2">
-          @foreach($services as $service)
-            <a href="{{ url('/dich-vu/' . $service->id) }}" class="block rounded-2xl bg-white/5 px-4 py-3 text-white transition-all duration-300 hover:bg-amber-500/10">{{ $service->title }}</a>
-          @endforeach
-        </div>
-      </details>
-      @auth
-        <a href="{{ url('/dashboard') }}" class="block mt-4 rounded-full bg-amber-400 py-3 text-center text-sm font-semibold text-black transition-all duration-300 hover:scale-[1.02]">
-          Dashboard
-        </a>
-      @else
-        <a href="{{ route('login') }}" class="block mt-4 rounded-full border border-amber-400 py-3 text-center text-sm font-semibold text-white transition-all duration-300 hover:bg-amber-400/10">
-          Đăng nhập
-        </a>
-      @endauth
-    </div>
-  </header>
+  @include('partials.navbar')
 
   <!-- Hero Section -->
   <main id="home">
@@ -233,12 +173,15 @@
         <div class="grid gap-6 lg:grid-cols-3">
           @foreach($newsList as $news)
             <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <img class="h-56 w-full object-cover" src="{{ str_starts_with($news->image_url, 'http') ? $news->image_url : asset('storage/' . $news->image_url) }}" alt="{{ $news->title }}" />
+              <div class="relative aspect-video w-full overflow-hidden bg-slate-200">
+                <img class="absolute inset-0 h-full w-full object-cover blur-xl opacity-60 scale-110" src="{{ str_starts_with($news->image_url, 'http') ? $news->image_url : asset('storage/' . $news->image_url) }}" alt="" aria-hidden="true" />
+                <img class="relative h-full w-full object-contain drop-shadow-md" src="{{ str_starts_with($news->image_url, 'http') ? $news->image_url : asset('storage/' . $news->image_url) }}" alt="{{ $news->title }}" />
+              </div>
               <div class="p-6">
                 <p class="text-sm uppercase tracking-[0.3em] text-amber-500">{{ $news->published_date->translatedFormat('d \T\h\á\n\g m, Y') }}</p>
                 <h3 class="mt-4 text-xl font-semibold">{{ $news->title }}</h3>
                 <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ $news->summary }}</p>
-                <a href="{{ url('/tin-tuc/' . $news->id) }}" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+                <a href="{{ url('/tin-tuc/' . $news->slug) }}" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
               </div>
             </article>
           @endforeach
@@ -247,68 +190,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-slate-300">
-      <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8">
-        <div class="grid gap-12 lg:grid-cols-3">
-          <div>
-            <h3 class="text-xl font-semibold text-white">Liên hệ</h3>
-            <p class="mt-5 text-slate-400">Địa chỉ: {{ $setting->address }}</p>
-            <p class="mt-3 text-slate-400">SĐT: <a href="tel:{{ $setting->phone }}" class="text-amber-400 hover:text-amber-300">{{ $setting->phone }}</a></p>
-            <p class="mt-3 text-slate-400">Email: <a href="mailto:{{ $setting->email }}" class="text-amber-400 hover:text-amber-300">{{ $setting->email }}</a></p>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold text-white">Links nhanh</h3>
-            <ul class="mt-5 space-y-3 text-slate-400">
-              <li><a href="#home" class="transition-all duration-300 hover:text-white">Trang chủ</a></li>
-              <li><a href="#about" class="transition-all duration-300 hover:text-white">Giới thiệu</a></li>
-              @foreach($services as $service)
-                <li><a href="{{ url('/dich-vu/' . $service->id) }}" class="transition-all duration-300 hover:text-white">{{ $service->title }}</a></li>
-              @endforeach
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold text-white">Mạng xã hội</h3>
-            <div class="mt-5 flex items-center gap-4">
-              <a href="{{ $setting->facebook_url }}" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">F</a>
-              <a href="{{ $setting->instagram_url }}" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">I</a>
-              <a href="{{ $setting->youtube_url }}" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">Y</a>
-              <a href="{{ $setting->tiktok_url }}" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-amber-400 transition-all duration-300 hover:border-amber-400 hover:bg-amber-500/10">T</a>
-            </div>
-          </div>
-        </div>
-        <div class="mt-12 border-t border-white/10 pt-6 text-center text-sm text-slate-500">
-          {{ $setting->copyright }}<br>
-          <span class="mt-2 block">Website được xây dựng và quản lý bởi <a href="https://www.facebook.com/phan.huynh.hoang.lam/" target="_blank" class="hover:text-slate-400 transition-colors">Hoàng Lâm</a></span>
-        </div>
-      </div>
-    </footer>
+    @include('partials.footer')
   </main>
 
-  <!-- Floating Contact Buttons (Phone & Zalo) -->
-  <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-4">
-    <!-- Phone Button -->
-    @if($setting->show_phone_button)
-      <a href="tel:{{ preg_replace('/[^0-9]/', '', $setting->phone) }}" class="pulsate-phone-btn flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-black shadow-2xl transition-transform duration-300 hover:scale-110" title="Gọi điện tư vấn">
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-      </a>
-    @endif
-    <!-- Messenger Button -->
-    @if($setting->messenger_url)
-      <a href="{{ $setting->messenger_url }}" target="_blank" class="pulsate-phone-btn flex h-14 w-14 items-center justify-center rounded-full bg-[#0084FF] text-white shadow-2xl transition-transform duration-300 hover:scale-110" title="Chat qua Messenger">
-        <svg viewBox="0 0 36 36" fill="currentColor" class="h-8 w-8">
-          <path d="M18 2C9.163 2 2 8.653 2 16.858c0 4.673 2.378 8.847 6.046 11.606v4.757l5.526-3.036c1.433.396 2.923.606 4.428.606 8.837 0 16-6.653 16-14.858C34 8.653 26.837 2 18 2zm1.666 19.983l-4.17-4.453-8.156 4.453 8.966-9.52 4.316 4.453 7.994-4.453-8.95 9.52z"/>
-        </svg>
-      </a>
-    @endif
-    <!-- Zalo Button -->
-    @if($setting->show_zalo_button)
-      <a href="{{ $setting->zalo_url ?? 'https://zalo.me/' . preg_replace('/[^0-9]/', '', $setting->phone) }}" target="_blank" class="pulsate-zalo-btn flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-2xl transition-transform duration-300 hover:scale-110" title="Chat qua Zalo">
-        <span class="text-xs font-black tracking-tight select-none">ZALO</span>
-      </a>
-    @endif
-  </div>
+  <!-- Floating Contact Buttons -->
+  @include('partials.floating-buttons')
 
   <script src="{{ asset('script.js') }}?v=1.0.1"></script>
 </body>

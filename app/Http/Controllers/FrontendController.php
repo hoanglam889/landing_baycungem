@@ -20,13 +20,13 @@ class FrontendController extends Controller
         return view('services.show', compact('setting', 'service', 'otherServices'));
     }
 
-    public function showNews($id)
+    public function showNews($slug)
     {
         $setting = Setting::first();
-        $news = News::findOrFail($id);
+        $news = News::where('slug', $slug)->firstOrFail();
         
         // Lấy danh sách bài viết khác để gợi ý
-        $otherNews = News::where('id', '!=', $id)->orderBy('published_date', 'desc')->take(3)->get();
+        $otherNews = News::where('id', '!=', $news->id)->orderBy('published_date', 'desc')->take(3)->get();
         
         return view('news.show', compact('setting', 'news', 'otherNews'));
     }
