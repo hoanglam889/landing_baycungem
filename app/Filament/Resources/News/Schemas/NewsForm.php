@@ -18,7 +18,7 @@ class NewsForm
                     ->label('Tiêu đề bài viết')
                     ->required()
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn (string $operation, $state, \Filament\Forms\Set $set) => $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null),
+                    ->afterStateUpdated(fn (string $operation, $state, $set) => $operation === 'create' ? $set('slug', \Illuminate\Support\Str::slug($state)) : null),
                 TextInput::make('slug')
                     ->label('Đường dẫn (Slug)')
                     ->required()
@@ -26,6 +26,11 @@ class NewsForm
                 TextInput::make('category')
                     ->label('Chuyên mục / Thể loại')
                     ->required(),
+                TextInput::make('youtube_url')
+                    ->label('Link YouTube (Tùy chọn)')
+                    ->url()
+                    ->placeholder('VD: https://www.youtube.com/watch?v=...')
+                    ->columnSpanFull(),
                 FileUpload::make('image_url')
                     ->label('Hình ảnh tiêu đề')
                     ->image()

@@ -35,6 +35,18 @@
         <p class="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
           {{ $news->summary }}
         </p>
+
+        @if($news->youtube_url)
+          @php
+            preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $news->youtube_url, $match);
+            $youtubeId = $match[1] ?? null;
+          @endphp
+          @if($youtubeId)
+            <div class="mt-12 relative aspect-video w-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 bg-black">
+              <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/{{ $youtubeId }}?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          @endif
+        @endif
       </article>
 
       <!-- Related Articles -->
