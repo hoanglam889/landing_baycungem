@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ $setting->site_name }} | Flycam & Video Panorama</title>
+  <meta name="description" content="{{ $setting->site_description ?? ($setting->site_name . ' - Cập nhật tin tức và dịch vụ mới nhất.') }}" />
   <link rel="icon" href="{{ asset('storage/thumbnailbce.png') }}" type="image/png" />
   <meta property="og:image" content="{{ asset('storage/thumbnailbce.png') }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,7 +77,7 @@
                 <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">{{ $service->badge }}</span>
               @endif
               <h3 class="mt-4 text-xl font-semibold">{{ $service->title }}</h3>
-              <p class="mt-3 text-sm text-slate-600">{{ $service->description }}</p>
+              <p class="mt-3 text-sm text-slate-600 line-clamp-3">{{ $service->description }}</p>
               <div class="mt-6 flex items-center justify-between border-t border-slate-200 pt-4">
                 <span class="text-amber-600 font-bold text-base">{{ format_price($service->price) }}</span>
                 <a href="{{ url('/dich-vu/' . $service->id) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
@@ -85,6 +86,11 @@
               </div>
             </article>
           @endforeach
+        </div>
+        <div class="mt-12 text-center">
+          <a href="{{ url('/dich-vu') }}" class="inline-flex items-center justify-center rounded-full border-2 border-amber-500 px-8 py-3 text-sm font-bold tracking-wide text-amber-600 transition-all duration-300 hover:bg-amber-500 hover:text-white hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:-translate-y-1">
+            XEM TẤT CẢ DỊCH VỤ
+          </a>
         </div>
       </div>
     </section>
@@ -180,11 +186,16 @@
               <div class="p-6">
                 <p class="text-sm uppercase tracking-[0.3em] text-amber-500">{{ $news->published_date->translatedFormat('d \T\h\á\n\g m, Y') }}</p>
                 <h3 class="mt-4 text-xl font-semibold">{{ $news->title }}</h3>
-                <p class="mt-3 text-sm text-slate-600 leading-relaxed">{{ $news->summary }}</p>
+                <p class="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">{{ $news->summary }}</p>
                 <a href="{{ url('/tin-tuc/' . $news->slug) }}" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
               </div>
             </article>
           @endforeach
+        </div>
+        <div class="mt-12 text-center">
+          <a href="{{ url('/tin-tuc') }}" class="inline-flex items-center justify-center rounded-full border-2 border-amber-500 px-8 py-3 text-sm font-bold tracking-wide text-amber-600 transition-all duration-300 hover:bg-amber-500 hover:text-white hover:shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:-translate-y-1">
+            XEM TẤT CẢ BÀI VIẾT
+          </a>
         </div>
       </div>
     </section>

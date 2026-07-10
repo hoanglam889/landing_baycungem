@@ -19,9 +19,18 @@ class News extends Model
         'youtube_url',
         'category',
         'image_url',
+        'content',
         'summary',
         'published_date',
     ];
+
+    public function getSummaryAttribute($value)
+    {
+        if (!empty($value)) {
+            return $value;
+        }
+        return \Illuminate\Support\Str::limit(strip_tags($this->content), 150);
+    }
 
     /**
      * Get the attributes that should be cast.

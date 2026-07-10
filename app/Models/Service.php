@@ -15,9 +15,18 @@ class Service extends Model
         'image_url',
         'badge',
         'title',
+        'content',
         'description',
         'price',
         'detail_url',
         'order',
     ];
+
+    public function getDescriptionAttribute($value)
+    {
+        if (!empty($value)) {
+            return $value;
+        }
+        return \Illuminate\Support\Str::limit(strip_tags($this->content), 150);
+    }
 }

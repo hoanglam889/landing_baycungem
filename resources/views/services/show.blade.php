@@ -1,6 +1,7 @@
 @extends('layouts.detail')
 
 @section('title', $service->title)
+@section('meta_description', $service->description)
 
 @section('content')
   <!-- Banner Section -->
@@ -24,7 +25,7 @@
         <div class="lg:col-span-2 space-y-8">
           <div class="prose prose-invert max-w-none">
             <h2 class="text-2xl font-bold text-amber-400 border-b border-white/10 pb-4 mb-6">Mô tả dịch vụ</h2>
-            <p class="text-slate-300 text-lg leading-relaxed whitespace-pre-line">{{ $service->description }}</p>
+            <div class="text-slate-300 text-lg leading-relaxed whitespace-pre-line">{!! $service->content !!}</div>
           </div>
 
           <!-- Why Choose Us / Process Details -->

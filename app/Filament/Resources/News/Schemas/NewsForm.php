@@ -35,8 +35,8 @@ class NewsForm
                     ->label('Hình ảnh tiêu đề')
                     ->image()
                     ->required(),
-                Textarea::make('summary')
-                    ->label('Tóm tắt nội dung')
+                \Filament\Forms\Components\RichEditor::make('content')
+                    ->label('Nội dung bài viết')
                     ->required()
                     ->columnSpanFull(),
                 DatePicker::make('published_date')

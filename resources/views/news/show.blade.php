@@ -1,6 +1,7 @@
 @extends('layouts.detail')
 
 @section('title', $news->title)
+@section('meta_description', $news->summary)
 
 @section('content')
   <section class="bg-slate-950 text-white py-16">
@@ -32,9 +33,9 @@
 
       <!-- Article Content -->
       <article class="mt-12 prose prose-invert prose-lg max-w-none border-b border-white/10 pb-12">
-        <p class="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
-          {{ $news->summary }}
-        </p>
+        <div class="text-slate-300 text-lg leading-relaxed whitespace-pre-line">
+          {!! $news->content !!}
+        </div>
 
         @if($news->youtube_url)
           @php

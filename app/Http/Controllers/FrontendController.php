@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    public function indexService()
+    {
+        $setting = Setting::first();
+        $services = Service::orderBy('order')->get();
+        return view('services.index', compact('setting', 'services'));
+    }
+
     public function showService($id)
     {
         $setting = Setting::first();
@@ -18,6 +25,12 @@ class FrontendController extends Controller
         $otherServices = Service::where('id', '!=', $id)->orderBy('order')->get();
         
         return view('services.show', compact('setting', 'service', 'otherServices'));
+    }
+    public function indexNews()
+    {
+        $setting = Setting::first();
+        $newsList = News::orderBy('published_date', 'desc')->paginate(9);
+        return view('news.index', compact('setting', 'newsList'));
     }
 
     public function showNews($slug)

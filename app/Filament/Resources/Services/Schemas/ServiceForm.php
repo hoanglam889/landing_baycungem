@@ -23,7 +23,7 @@ class ServiceForm
                 TextInput::make('title')
                     ->label('Tên dịch vụ')
                     ->required(),
-                Textarea::make('description')
+                \Filament\Forms\Components\RichEditor::make('content')
                     ->label('Mô tả chi tiết')
                     ->required()
                     ->columnSpanFull(),
