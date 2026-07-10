@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>@yield('title') | {{ $setting->site_name }}</title>
   <meta name="description" content="@yield('meta_description', $setting->site_name . ' - Cập nhật tin tức và dịch vụ mới nhất.')" />
+  <link rel="icon" href="{{ asset('storage/thumbnailbce.png') }}" type="image/png" />
+  <meta property="og:image" content="{{ asset('storage/thumbnailbce.png') }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
