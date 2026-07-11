@@ -62,7 +62,7 @@
     </section>
 
     <!-- Featured Products -->
-    <section class="bg-white py-20 text-slate-900">
+    <section id="service" class="bg-white py-20 text-slate-900">
       <div class="mx-auto max-w-7xl px-6 sm:px-8">
         <div class="mb-12 text-center">
           <span class="text-sm uppercase tracking-[0.35em] text-amber-500">Sản phẩm nổi bật</span>
