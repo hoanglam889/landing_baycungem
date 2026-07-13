@@ -71,18 +71,19 @@
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           @foreach($services as $service)
-            <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <img class="h-56 w-full rounded-3xl object-cover" src="{{ str_starts_with($service->image_url, 'http') ? $service->image_url : asset('storage/' . $service->image_url) }}" alt="{{ $service->title }}" />
+            <article class="relative group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <a href="{{ url('/dich-vu/' . $service->id) }}" class="absolute inset-0 z-10"><span class="sr-only">Xem chi tiết dịch vụ</span></a>
+              <img class="h-56 w-full rounded-3xl object-cover relative z-0" src="{{ str_starts_with($service->image_url, 'http') ? $service->image_url : asset('storage/' . $service->image_url) }}" alt="{{ $service->title }}" />
               @if($service->badge)
-                <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600">{{ $service->badge }}</span>
+                <span class="mt-5 inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-600 relative z-0">{{ $service->badge }}</span>
               @endif
-              <h3 class="mt-4 text-xl font-semibold">{{ $service->title }}</h3>
-              <p class="mt-3 text-sm text-slate-600 line-clamp-3">{{ $service->description }}</p>
-              <div class="mt-6 flex items-center justify-between border-t border-slate-200 pt-4">
+              <h3 class="mt-4 text-xl font-semibold relative z-0 group-hover:text-amber-600 transition-colors duration-300">{{ $service->title }}</h3>
+              <p class="mt-3 text-sm text-slate-600 line-clamp-3 relative z-0">{{ $service->description }}</p>
+              <div class="mt-6 flex items-center justify-between border-t border-slate-200 pt-4 relative z-0">
                 <span class="text-amber-600 font-bold text-base">{{ format_price($service->price) }}</span>
-                <a href="{{ url('/dich-vu/' . $service->id) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 hover:text-amber-700">
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-amber-500 transition-all duration-300 group-hover:text-amber-700">
                   Xem chi tiết →
-                </a>
+                </span>
               </div>
             </article>
           @endforeach
@@ -178,16 +179,17 @@
         </div>
         <div class="grid gap-6 lg:grid-cols-3">
           @foreach($newsList as $news)
-            <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div class="relative aspect-video w-full overflow-hidden bg-slate-200">
+            <article class="relative group overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <a href="{{ url('/tin-tuc/' . $news->slug) }}" class="absolute inset-0 z-10"><span class="sr-only">Đọc bài viết</span></a>
+              <div class="relative aspect-video w-full overflow-hidden bg-slate-200 z-0">
                 <img class="absolute inset-0 h-full w-full object-cover blur-xl opacity-60 scale-110" src="{{ str_starts_with($news->image_url, 'http') ? $news->image_url : asset('storage/' . $news->image_url) }}" alt="" aria-hidden="true" />
                 <img class="relative h-full w-full object-contain drop-shadow-md" src="{{ str_starts_with($news->image_url, 'http') ? $news->image_url : asset('storage/' . $news->image_url) }}" alt="{{ $news->title }}" />
               </div>
-              <div class="p-6">
+              <div class="p-6 relative z-0">
                 <p class="text-sm uppercase tracking-[0.3em] text-amber-500">{{ $news->published_date->translatedFormat('d \T\h\á\n\g m, Y') }}</p>
-                <h3 class="mt-4 text-xl font-semibold">{{ $news->title }}</h3>
+                <h3 class="mt-4 text-xl font-semibold group-hover:text-amber-600 transition-colors duration-300">{{ $news->title }}</h3>
                 <p class="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">{{ $news->summary }}</p>
-                <a href="{{ url('/tin-tuc/' . $news->slug) }}" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 hover:text-amber-700">Đọc thêm →</a>
+                <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-600 transition-all duration-300 group-hover:text-amber-700">Đọc thêm →</span>
               </div>
             </article>
           @endforeach
