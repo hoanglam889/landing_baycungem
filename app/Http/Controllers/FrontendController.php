@@ -21,6 +21,12 @@ class FrontendController extends Controller
         $setting = Setting::first();
         $service = Service::findOrFail($id);
         
+        $sessionKey = 'viewed_service_' . $service->id;
+        if (!session()->has($sessionKey)) {
+            $service->increment('views_count');
+            session()->put($sessionKey, true);
+        }
+        
         // Lấy danh sách dịch vụ khác để gợi ý
         $otherServices = Service::where('id', '!=', $id)->orderBy('order')->get();
         
@@ -37,6 +43,12 @@ class FrontendController extends Controller
     {
         $setting = Setting::first();
         $news = News::where('slug', $slug)->firstOrFail();
+        
+        $sessionKey = 'viewed_news_' . $news->id;
+        if (!session()->has($sessionKey)) {
+            $news->increment('views_count');
+            session()->put($sessionKey, true);
+        }
         
         // Lấy danh sách bài viết khác để gợi ý
         $otherNews = News::where('id', '!=', $news->id)->orderBy('published_date', 'desc')->take(3)->get();

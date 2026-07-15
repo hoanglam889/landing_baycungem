@@ -19,6 +19,7 @@ class News extends Model
         'youtube_url',
         'category',
         'image_url',
+        'views_count',
         'content',
         'summary',
         'published_date',

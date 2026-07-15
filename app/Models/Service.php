@@ -18,6 +18,7 @@ class Service extends Model
         'content',
         'description',
         'price',
+        'views_count',
         'detail_url',
         'order',
     ];

@@ -22,9 +22,7 @@ Route::get('/dich-vu/{id}', [FrontendController::class, 'showService'])->name('s
 Route::get('/tin-tuc', [FrontendController::class, 'indexNews'])->name('news.index');
 Route::get('/tin-tuc/{slug}', [FrontendController::class, 'showNews'])->name('news.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::redirect('/dashboard', '/admin')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
